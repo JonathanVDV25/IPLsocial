@@ -32,4 +32,13 @@ class IPLSocialTest extends TestCase
         //Assert
         $this->assertEquals("mot de passe doit contenir au moins un chiffre", $actual);
     }
+
+    public function testCheckGivenPasswordLength8WithSpecialCharAndWithNumberShouldReturnMessagePasswordRespectsTheRules() : void {
+        //Arrange
+        $IPLSocial = new HomeController();
+        //Act
+        $actual = $IPLSocial->checkPassword("aaaa5aaa(");
+        //Assert
+        $this->assertEquals("Mot de passe respecte bien les règles !", $actual);
+    }
 }
