@@ -23,4 +23,13 @@ class IPLSocialTest extends TestCase
         //Assert
         $this->assertEquals("mot de passe doit contenir au moins un caractère spécial", $actual);
     }
+
+    public function testCheckPasswordGivenPasswordLength8WithOneSpecialCharWithoutNumberShouldReturnErrorMessagePasswordMustContaintOneNumber() : void{
+        //Arrange
+        $IPLSocial = new HomeController();
+        //Act
+        $actual = $IPLSocial->checkPassword("aaaaaaaa(");
+        //Assert
+        $this->assertEquals("mot de passe doit contenir au moins un chiffre", $actual);
+    }
 }
