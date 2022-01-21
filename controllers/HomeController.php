@@ -16,6 +16,7 @@ class HomeController
     }
 
     public function checkPassword(string $password) : string {
+        if(strlen($password) < 8 ) return "mot de passe doit contenir au moins 8 charactères !";
         return "";
     }
 }
