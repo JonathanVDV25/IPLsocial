@@ -41,4 +41,13 @@ class IPLSocialTest extends TestCase
         //Assert
         $this->assertEquals("Mot de passe respecte bien les règles !", $actual);
     }
+
+    public function testCheckPasswordGivenPasswordLength7ShouldReturnErrorMessagePasswordTooSmall() : void{
+        //Arrange
+        $IPLSocial = new HomeController();
+        //Act
+        $actual = $IPLSocial->checkPassword("aaaaaaa");
+        //Assert
+        $this->assertEquals("mot de passe doit contenir au moins 8 charactères", $actual);
+    }
 }
